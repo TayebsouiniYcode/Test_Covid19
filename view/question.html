@@ -8,6 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../style.css">
     <title>Test covid 19</title>
 </head>
 
@@ -15,7 +16,7 @@
     <header class="header">
         <nav class="navbar navbar-expand-lg navbar-light  container">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#"><img src="../photos/logo__sante-1.svg" alt="logo" width="40"
+                <a class="navbar-brand" href="../index.html"><img src="../photos/logo__sante-1.svg" alt="logo" width="40"
                         height="40"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
                     aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,10 +25,10 @@
                 <div class="collapse navbar-collapse" id="navbarText">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-lg-3">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Conseils</a>
+                            <a class="nav-link" href="../index.html">Conseils</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Accueil</a>
+                            <a class="nav-link" href="../index.html">Accueil</a>
                         </li>
                     </ul>
                     <span class="navbar-text mx-lg-5">
@@ -38,9 +39,43 @@
         </nav>
     </header>
 
+    
+  <!-- ----------------------------steeper------------------------------------ -->
+  <div class="container d-flex flex-column ">
+    <div class="row ">
+        <div class="justify-content-center ">
+            <div class=" row ">
+                <!-- stepper -->
+                <div class="col-4 d-flex justify-content-center flex-column align-items-center">
+                    <div class="d-flex align-items-center justify-content-center lb-circle-container">
+                        <div class="rounded-circle label-circle-s" id="info"></div>
+                    </div>
+                    <p class="stepper-label">informations</p>
+                </div>
+                <div class="col-4 d-flex justify-content-center flex-column align-items-center">
+                    <div class="d-flex align-items-center justify-content-center lb-circle-container">
+                        <div class="rounded-circle label-circle-ns" id="answers"></div>
+                    </div>
+                    <p class="stepper-label">Questionnaire</p>
+                </div>
+                <div class="col-4 d-flex justify-content-center flex-column align-items-center">
+                    <div class="d-flex align-items-center justify-content-center lb-circle-container">
+                        <div class="rounded-circle label-circle-ns" id="result"></div>
+                    </div>
+                    <p class="stepper-label">Resultat</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ------------------------------------steeper---------------------------- -->
     <div class="container justify-content-center mt-5 mb-5">
         <div class="carousel slide" id="carouselExampleControls" data-bs-interval="false">
             <div class="form-content carousel-inner">
+                <div class="progress mb-2">
+                    <div class="progress-bar" style="width:4.34%;">
+                        <span class="nbr-Q">1/23</span>
+                    </div>
+                </div>
                 <form class="formQuestion border border-2" action="" name="testCovid19">
 
 
@@ -64,7 +99,7 @@
                             Quelle est votre température corporelle?
                         </h4>
                         <div class="answer d-flex justify-content-center mt-5">
-                            <input type="number" name="temperature" id="temperature">
+                            <input type="number" name="temperature" id="temperature" min=33 max=42>
                         </div>
                     </div>
 
@@ -360,18 +395,40 @@
                             <label for="traitementNeSaitPas" class="border border-2 px-2 btn">Ne sait pas</label>
                         </div>
                     </div>
+
+                    <div class="question-23 form-group carousel-item flex-column mt-5  border p-4 vh-70 text-center">
+                        <h4 class="d-block">
+                            Resultat
+                        </h4>
+                        <p>
+                            <span id="msg"></span>
+                        </p>
+                        <!-- <div class="d-flex align-items-center flex-column pt-5">
+                            <h2 class="fw-bold" style="color: #026534;">RESTER A VOTRE MAISON</h2>
+                            <div class="d-flex flex-column rounded-3 " style="background-color: #1078AD;">
+                                <div class="p-4">
+                                     <h2 class="text-center text-white fs-2 fw-bold">Appelez le 141</h2> -->
+                                    <!-- <p class="text-center text-warning fs-4" id="msg"></p>      
+                                </div>
+                            </div>
+                            <button class="btn btn-primary pt-3 pb-3 mt-3" style="background-color: #1078AD;">Recommencer le test</button>
+                        </div>  -->
+                    </div>
+
+
                 </form>
             </div>
             <div class="form-group d-flex justify-content-between p-3">
                 <button class="btn border border-2" id="btnPrecedant" type="button"
                     data-bs-target="#carouselExampleControls" data-bs-slide="prev">precedant</button>
-                <button class="btn border border-2" id="btnTester">Tester</button>
+                <button class="btn border border-2" id="btnTester" onclick="resultatProgress()" data-bs-target="#carouselExampleControls" data-bs-slide="next">Tester</button>
                 <button class="btn border border-2" id="btnSuivant" type="button"
                     data-bs-target="#carouselExampleControls" data-bs-slide="next">suivant</button>
             </div>
         </div>
     </div>
 
+    <script src="../intro.js"></script>
     <script src="../assets/js/person.js"></script>
     <script src="../assets/js/main.js"></script>
     <script src="../main.js"></script>
